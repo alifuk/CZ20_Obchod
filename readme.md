@@ -56,3 +56,5 @@ git clone https://github.com/alifuk/CZ20_Obchod.git
 - [x] Inicializovat djagno
 - [ ] Přidat stránku aukce
 - [ ] Úkol 3
+- [ ] Úkol 4
+
