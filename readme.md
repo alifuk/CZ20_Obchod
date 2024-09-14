@@ -57,4 +57,5 @@ git clone https://github.com/alifuk/CZ20_Obchod.git
 - [ ] Přidat stránku aukce
 - [ ] Úkol 3
 - [ ] Úkol 4
+- [ ] Úkol 5
 
