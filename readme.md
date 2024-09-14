@@ -52,7 +52,7 @@ git clone https://github.com/alifuk/CZ20_Obchod.git
 - id/primární klíč konkrétního záznamu získám jako **car.pk**
 - nalezení tohoto záznamu pak mohu udělat jako **Car.objects.get(pk=car_pk)**
 
-### Ukázka odškrtávacího seznamu
+### Ukázka odškrtávacího seznamu!
 - [x] Inicializovat djagno
 - [ ] Přidat stránku aukce
 - [ ] Úkol 3
