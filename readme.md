@@ -6,3 +6,6 @@ Součástí tohoto projektu je vytvoření aplikace, která umožní přidávat 
 
 
 
+- [x] Inicializovat djagno
+- [ ] Přidat stránku aukce
+- [ ] Úkol 3
