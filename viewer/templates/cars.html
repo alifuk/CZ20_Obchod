@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Stránka aut</h1>
+
+<h2>Auta</h2>
+{% for car in all_cars %}
+<br>{{ car.brand }} -{{car.color}}
+{% endfor %}
+
+
+{% endblock %}

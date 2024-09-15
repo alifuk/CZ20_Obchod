@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Obchod</title>
+</head>
+<body>
+<ul>
+    <li><a href="{% url 'main' %}">Main page</a></li>
+    <li><a href="{% url 'cars' %}">Cars</a></li>
+    <li><a href="{% url 'offers' %}">Offers</a></li>
+</ul>
+
+{% block content %}
+{% endblock %}
+
+
+</body>
+</html>
