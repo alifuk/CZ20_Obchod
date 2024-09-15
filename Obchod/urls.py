@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from viewer.views import MainPageView
-from viewer.models import Car
+from viewer.models import Car, Offer
 admin.site.register(Car)
+admin.site.register(Offer)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
