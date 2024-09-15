@@ -5,7 +5,11 @@
     <title>Obchod</title>
 </head>
 <body>
-<h1>Hlavní stránka obchodu</h1>
+<h1>Hlavní stránka obchodu Albert</h1>
+
+{% for car in all_cars %}
+<br>{{ car.brand }} -{{car.color}}
+{% endfor %}
 
 </body>
 </html>

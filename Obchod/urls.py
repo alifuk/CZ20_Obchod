@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from viewer.views import MainPageView
+from viewer.models import Car
+admin.site.register(Car)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainPageView.as_view(), name='main'),
+    path('albert/', MainPageView.as_view(), name='main'),
 ]
