@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from viewer.views import MainPageView, CarsView, OffersView, CarsUpdateView, CarsDeleteView
 from viewer.views import CarsCreateView, CarsUpdateView, CarsDeleteView
-from viewer.models import Car, Offer
+from viewer.models import Car, Offer, CarFeature
+
 admin.site.register(Car)
 admin.site.register(Offer)
+admin.site.register(CarFeature)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
