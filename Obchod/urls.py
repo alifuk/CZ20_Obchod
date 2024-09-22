@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from viewer.views import MainPageView, CarsView, OffersView, CarsUpdateView, CarsDeleteView
-from viewer.views import CarsCreateView, CarsUpdateView, CarsDeleteView
+from viewer.views import CarsCreateView, CarsUpdateView, CarsDeleteView, UserView
 from viewer.models import Car, Offer, CarFeature
 
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LoginView, LogoutView
 
 admin.site.register(Car)
 admin.site.register(Offer)
@@ -35,6 +35,8 @@ urlpatterns = [
     path('cars/delete/<pk>', CarsDeleteView.as_view(), name='delete_car'),
 
 
-    path('users/logout', LogoutView.as_view(), name='logout'),
+    path('userpage/', UserView.as_view(), name='userpage'),
+    path('accounts/login/', LoginView.as_view(), name='login'),
+    path('accounts/logout/', LogoutView.as_view(), name='logout'),
 
 ]
