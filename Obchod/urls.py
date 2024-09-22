@@ -19,6 +19,8 @@ from viewer.views import MainPageView, CarsView, OffersView, CarsUpdateView, Car
 from viewer.views import CarsCreateView, CarsUpdateView, CarsDeleteView
 from viewer.models import Car, Offer, CarFeature
 
+from django.contrib.auth.views import LogoutView
+
 admin.site.register(Car)
 admin.site.register(Offer)
 admin.site.register(CarFeature)
@@ -31,5 +33,8 @@ urlpatterns = [
     path('cars/create/', CarsCreateView.as_view(), name='create_car'),
     path('cars/update/<pk>', CarsUpdateView.as_view(), name='update_car'),
     path('cars/delete/<pk>', CarsDeleteView.as_view(), name='delete_car'),
+
+
+    path('users/logout', LogoutView.as_view(), name='logout'),
 
 ]

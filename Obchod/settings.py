@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'viewer'
 ]
 
+LOGIN_REDIRECT_URL = 'cars'
+LOGOUT_REDIRECT_URL = 'cars'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
