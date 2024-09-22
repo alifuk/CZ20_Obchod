@@ -4,11 +4,11 @@ from django.shortcuts import render
 # Create your views here.
 from django.contrib.auth.forms import (UserCreationForm)
 
-from django.views.generic import TemplateView, CreateView, DeleteView
+from django.views.generic import TemplateView, CreateView, DeleteView, FormView
 from django.views.generic import UpdateView
 from viewer.models import Car, Offer
 from django.urls import reverse_lazy
-from viewer.forms import CarsForm
+from viewer.forms import CarsForm, CleanForm
 
 class MainPageView(TemplateView):
   template_name = 'index.html'
@@ -53,4 +53,17 @@ class SignUpView(CreateView):
 
 class UserView(TemplateView):
   template_name = "user.html"
+
+
+
+
+class ExampleForm(FormView):
+    template_name = 'form.html'
+    form_class = CleanForm
+    success_url = reverse_lazy('cars')
+
+    def form_valid(self, form):
+      result = super().form_valid(form)
+
+      return result
 
