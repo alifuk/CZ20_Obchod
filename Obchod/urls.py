@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from viewer.views import MainPageView, CarsView, OffersView, CarsUpdateView, CarsDeleteView
-from viewer.views import CarsCreateView, CarsUpdateView, CarsDeleteView, UserView
+from viewer.views import CarsCreateView, CarsUpdateView, CarsDeleteView, UserView, SignUpView
 from viewer.models import Car, Offer, CarFeature
 
 from django.contrib.auth.views import LoginView, LogoutView
@@ -36,6 +36,7 @@ urlpatterns = [
 
 
     path('userpage/', UserView.as_view(), name='userpage'),
+    path('accounts/register/', SignUpView.as_view(), name='registration'),
     path('accounts/login/', LoginView.as_view(), name='login'),
     path('accounts/logout/', LogoutView.as_view(), name='logout'),
 
