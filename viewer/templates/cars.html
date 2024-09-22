@@ -6,7 +6,9 @@
 
 <h2>Auta</h2>
 {% for car in all_cars %}
-<h4>{{ car.brand }} -{{car.color}} <a href={% url 'update_car' car.pk %}>upravit</a>
+<h4>{{ car.brand }} -{{car.color}}
+    <a href={% url 'update_car' car.pk %}>upravit</a>
+    <a href={% url 'delete_car' car.pk %}>smazat</a>
 </h4>
     {% endfor %}
 

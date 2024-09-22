@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, DeleteView
 from django.views.generic import UpdateView
 from viewer.models import Car, Offer
 from django.urls import reverse_lazy
@@ -30,7 +30,12 @@ class CarsUpdateView(UpdateView):
   template_name = 'form.html'
   model = Car
   form_class = CarsForm
-  success_url = reverse_lazy('index')
+  success_url = reverse_lazy('cars')
+
+class CarsDeleteView(DeleteView):
+  template_name = 'car_confirm_delete.html'
+  model = Car
+  success_url = reverse_lazy('cars')
 
 class OffersView(TemplateView):
   template_name = 'offers.html'
