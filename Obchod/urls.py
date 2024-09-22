@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from viewer.views import MainPageView, CarsView, OffersView
+from viewer.views import MainPageView, CarsView, OffersView, CarsUpdateView
+from viewer.views import CarsCreateView, CarsUpdateView
 from viewer.models import Car, Offer
 admin.site.register(Car)
 admin.site.register(Offer)
@@ -25,4 +26,7 @@ urlpatterns = [
     path('', MainPageView.as_view(), name='main'),
     path('cars/', CarsView.as_view(), name='cars'),
     path('offers/', OffersView.as_view(), name='offers'),
+    path('cars/create/', CarsCreateView.as_view(), name='create_car'),
+    path('cars/update/<pk>', CarsUpdateView.as_view(), name='update_car'),
+
 ]
