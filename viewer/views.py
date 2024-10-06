@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -97,3 +97,20 @@ def send_emails_to_user(request):
   print(f"Máme nová auta {Car.objects.all()} ")
 
   return HttpResponse("vše OK")
+
+
+def api_get_all_cars(request):
+  all_cars = Car.objects.all()
+  json_all_cars = {}
+  for car in all_cars:
+    json_all_cars[car.pk] = {
+      "brand": str(car.brand),
+      "color": str(car.color)
+    }
+
+  return JsonResponse(json_all_cars)
+
+def api_get_all_comments(request):
+  json_all_comments = { comment.pk: {"text":str(comment.text)} for comment in Comment.objects.all()}
+  return JsonResponse(json_all_comments)
+

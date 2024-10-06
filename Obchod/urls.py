@@ -18,7 +18,7 @@ from django.urls import path
 from viewer.views import MainPageView, CarsView, OffersView, CarsUpdateView, CarsDeleteView, ExampleForm, \
     CommentCreateView
 from viewer.views import CarsCreateView, CarsUpdateView, CarsDeleteView, UserView, SignUpView
-from viewer.views import CarsDetailedView, send_emails_to_user
+from viewer.views import CarsDetailedView, send_emails_to_user, api_get_all_cars, api_get_all_comments
 from viewer.models import Car, Offer, CarFeature, Comment
 
 from django.contrib.auth.views import LoginView, LogoutView
@@ -27,6 +27,7 @@ admin.site.register(Car)
 admin.site.register(Offer)
 admin.site.register(CarFeature)
 admin.site.register(Comment)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -50,5 +51,7 @@ urlpatterns = [
     path('exampleform/', ExampleForm.as_view(), name='exampleform'),
 
 
+    path('api/car/get_all', api_get_all_cars),
+    path('api/comment/get_all', api_get_all_comments),
 
 ]
