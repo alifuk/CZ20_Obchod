@@ -1,5 +1,5 @@
 from django.forms import ModelForm, Form, CharField
-from viewer.models import Car, Offer
+from viewer.models import Car, Offer, Comment
 from django.core.exceptions import ValidationError
 
 class CarsForm(ModelForm):
@@ -19,8 +19,11 @@ class CleanForm(Form):
   def clean_title(self):
     # Každá titulek bude začínat velkým písmenem
     return self.cleaned_data['title'].capitalize()
-
-
   pass
+
+class CommentForm(ModelForm):
+  class Meta:
+    model = Comment
+    fields = ['text']
 
 

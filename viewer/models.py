@@ -22,3 +22,11 @@ class Offer(models.Model):
 
     def __str__(self):
         return f"Nabídka {self.offered_car.brand} - {self.price} EUR"
+
+
+
+
+
+class Comment(models.Model):
+    text = models.CharField(max_length=128)
+    car = models.ForeignKey(Car, on_delete=models.DO_NOTHING)

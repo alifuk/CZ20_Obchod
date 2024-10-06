@@ -15,20 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from viewer.views import MainPageView, CarsView, OffersView, CarsUpdateView, CarsDeleteView, ExampleForm
+from viewer.views import MainPageView, CarsView, OffersView, CarsUpdateView, CarsDeleteView, ExampleForm, \
+    CommentCreateView
 from viewer.views import CarsCreateView, CarsUpdateView, CarsDeleteView, UserView, SignUpView
-from viewer.models import Car, Offer, CarFeature
+from viewer.views import CarsDetailedView
+from viewer.models import Car, Offer, CarFeature, Comment
 
 from django.contrib.auth.views import LoginView, LogoutView
 
 admin.site.register(Car)
 admin.site.register(Offer)
 admin.site.register(CarFeature)
+admin.site.register(Comment)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainPageView.as_view(), name='main'),
     path('cars/', CarsView.as_view(), name='cars'),
+    path('cars/<pk>', CarsDetailedView.as_view(), name='cars_detail'),
+    path('comment/create/<car_pk>', CommentCreateView.as_view(), name='create_comment'),
+
     path('offers/', OffersView.as_view(), name='offers'),
     path('cars/create/', CarsCreateView.as_view(), name='create_car'),
     path('cars/update/<pk>', CarsUpdateView.as_view(), name='update_car'),

@@ -8,6 +8,8 @@
 {% for car in all_cars %}
 <h4>{{ car.brand }} -{{car.color}}
     Features {% for feature in car.features.all %}{{feature.feature_name}}{% endfor %}
+
+    <a href={% url 'cars_detail' car.pk %}>zobrazit detail</a>
     <a href={% url 'update_car' car.pk %}>upravit</a>
     <a href={% url 'delete_car' car.pk %}>smazat</a>
 </h4>

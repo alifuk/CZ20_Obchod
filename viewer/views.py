@@ -6,9 +6,9 @@ from django.contrib.auth.forms import (UserCreationForm)
 
 from django.views.generic import TemplateView, CreateView, DeleteView, FormView
 from django.views.generic import UpdateView
-from viewer.models import Car, Offer
+from viewer.models import Car, Offer, Comment
 from django.urls import reverse_lazy
-from viewer.forms import CarsForm, CleanForm
+from viewer.forms import CarsForm, CleanForm, CommentForm
 
 class MainPageView(TemplateView):
   template_name = 'index.html'
@@ -67,3 +67,23 @@ class ExampleForm(FormView):
 
       return result
 
+
+class CarsDetailedView(TemplateView):
+  template_name = 'car_detail.html'
+
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data( **kwargs)
+    context["car_detail"] = Car.objects.get(pk=int(kwargs["pk"]))
+    context["car_comments"] = Comment.objects.filter(car__pk=int(kwargs["pk"]))
+    return context
+
+class CommentCreateView(FormView):
+  template_name = 'form.html'
+  form_class = CommentForm
+  success_url = reverse_lazy("cars")
+
+  def form_valid(self, form):
+    new_comment : Comment = form.save(commit=False)
+    new_comment.car = Car.objects.get(pk=int(self.kwargs["car_pk"]))
+    new_comment.save()
+    return super().form_valid(form)
