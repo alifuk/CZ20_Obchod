@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -6,6 +7,7 @@ from django.contrib.auth.forms import (UserCreationForm)
 
 from django.views.generic import TemplateView, CreateView, DeleteView, FormView
 from django.views.generic import UpdateView
+
 from viewer.models import Car, Offer, Comment
 from django.urls import reverse_lazy
 from viewer.forms import CarsForm, CleanForm, CommentForm
@@ -87,3 +89,11 @@ class CommentCreateView(FormView):
     new_comment.car = Car.objects.get(pk=int(self.kwargs["car_pk"]))
     new_comment.save()
     return super().form_valid(form)
+
+#CRONTAB SOUBOR OBSAH: * * * * 3 python3 send_email_to_users.py >/dev/null 2>&1
+#Generování obsahu pro CRON soubor je https://crontab-generator.org/
+def send_emails_to_user(request):
+  #ZDE přijde kód pro odeslání emailů...
+  print(f"Máme nová auta {Car.objects.all()} ")
+
+  return HttpResponse("vše OK")

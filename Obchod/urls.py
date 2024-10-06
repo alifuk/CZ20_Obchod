@@ -18,7 +18,7 @@ from django.urls import path
 from viewer.views import MainPageView, CarsView, OffersView, CarsUpdateView, CarsDeleteView, ExampleForm, \
     CommentCreateView
 from viewer.views import CarsCreateView, CarsUpdateView, CarsDeleteView, UserView, SignUpView
-from viewer.views import CarsDetailedView
+from viewer.views import CarsDetailedView, send_emails_to_user
 from viewer.models import Car, Offer, CarFeature, Comment
 
 from django.contrib.auth.views import LoginView, LogoutView
@@ -34,6 +34,7 @@ urlpatterns = [
     path('cars/', CarsView.as_view(), name='cars'),
     path('cars/<pk>', CarsDetailedView.as_view(), name='cars_detail'),
     path('comment/create/<car_pk>', CommentCreateView.as_view(), name='create_comment'),
+    path('send_emails_to_user', send_emails_to_user),
 
     path('offers/', OffersView.as_view(), name='offers'),
     path('cars/create/', CarsCreateView.as_view(), name='create_car'),
