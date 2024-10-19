@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from django.contrib.auth.models import User
 
+
 class MySeleniumTests(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
