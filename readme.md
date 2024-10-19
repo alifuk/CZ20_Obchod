@@ -7,6 +7,7 @@ Součástí tohoto projektu je vytvoření aplikace, která umožní přidávat 
 git clone https://github.com/alifuk/CZ20_Obchod.git
 
 
+
 ## Užitečné příkazy
 `git clone https://github.com/alifuk/CZ20_Obchod.git`
 
